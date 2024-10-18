@@ -2,15 +2,24 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const BRSonomaRegular = localFont({
+  src: "./fonts/br-sonoma/BRSonoma-Regular.woff2",
+  variable: "--font-brsonoma-regular",
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+const BRSonomaBold = localFont({
+  src: "./fonts/br-sonoma/BRSonoma-Bold.woff2",
+  variable: "--font-brsonoma-bold",
+});
+
+const BRSonomaMedium = localFont({
+  src: "./fonts/br-sonoma/BRSonoma-Medium.woff2",
+  variable: "--font-brsonoma-medium",
+});
+
+const BRSonomaSemiBold = localFont({
+  src: "./fonts/br-sonoma/BRSonoma-SemiBold.woff2",
+  variable: "--font-brsonoma-semibold",
 });
 
 export const metadata: Metadata = {
@@ -24,9 +33,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${BRSonomaRegular.variable} ${BRSonomaBold.variable} ${BRSonomaMedium.variable} ${BRSonomaSemiBold.variable} antialiased`}
       >
         {children}
       </body>
