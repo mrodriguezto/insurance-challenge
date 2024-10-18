@@ -21,10 +21,17 @@ import {
 } from "@/components/ui/form";
 import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { quoteFormSchema, type QuoteForm as QuoteFormType } from "../validations/quote.schema";
+import { useState } from "react";
+import { LoadingButton } from "@/components/ui/loading-button";
+import { useUserStore } from "../state/user.state";
+import { useRouter } from "next/navigation";
+import { ROUTES } from "@/configs/routes";
 
 export function QuoteForm() {
+  const [isFetchingUser, setIsFetchingUser] = useState(false);
+  const router = useRouter();
+
   const form = useForm<QuoteFormType>({
     resolver: zodResolver(quoteFormSchema),
     mode: "onBlur",
@@ -35,8 +42,19 @@ export function QuoteForm() {
     },
   });
 
-  const onSubmit = (data: QuoteFormType) => {
-    console.log(data);
+  const onSubmit = async (data: QuoteFormType) => {
+    setIsFetchingUser(true);
+
+    const fetchUser = useUserStore.getState().fetchUser;
+
+    try {
+      await fetchUser(data);
+      router.push(ROUTES.HEALTH_INSURANCE_PLANS);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsFetchingUser(false);
+    }
   };
 
   return (
@@ -133,9 +151,9 @@ export function QuoteForm() {
               Aplican Términos y Condiciones.
             </Link>
           </div>
-          <Button type="submit" size="lg">
+          <LoadingButton type="submit" size="lg" isLoading={isFetchingUser}>
             Cotiza Aquí
-          </Button>
+          </LoadingButton>
         </form>
       </Form>
     </div>

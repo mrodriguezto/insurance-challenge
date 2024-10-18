@@ -1,12 +1,12 @@
-import GridLayout from "@/layouts/grid-layout";
 import Image from "next/image";
 import rimacLogo from "@/assets/logo-white.png";
 import rimacFlatLogo from "@/assets/logo-white-flat.png";
+import { GridContainer } from "./grid-container";
 
 export function Footer() {
   return (
     <footer className="bg-dark-background py-8">
-      <GridLayout>
+      <GridContainer>
         <div className="col-span-full">
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
             <div className="flex items-center gap-2">
@@ -21,7 +21,7 @@ export function Footer() {
             </span>
           </div>
         </div>
-      </GridLayout>
+      </GridContainer>
     </footer>
   );
 }

@@ -1,4 +1,4 @@
-import GridLayout from "@/layouts/grid-layout";
+import { GridContainer } from "./grid-container";
 import Image from "next/image";
 import rimacLogo from "@/assets/logo.png";
 import { PhoneIcon } from "@/components/phone-icon";
@@ -6,7 +6,7 @@ import { PhoneIcon } from "@/components/phone-icon";
 export function Header() {
   return (
     <header className="bg-background">
-      <GridLayout>
+      <GridContainer>
         <div className="col-span-full py-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -33,7 +33,7 @@ export function Header() {
             </div>
           </div>
         </div>
-      </GridLayout>
+      </GridContainer>
     </header>
   );
 }
