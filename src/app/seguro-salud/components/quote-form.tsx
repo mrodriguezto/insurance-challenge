@@ -52,15 +52,25 @@ export function QuoteForm() {
             <Label>Nro de documento</Label>
 
             <div className="flex">
-              <Select {...form.register("documentType")} defaultValue="DNI">
-                <SelectTrigger className="max-w-[140px] rounded-r-none border-r-0">
-                  <SelectValue placeholder="Tipo de documento" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="DNI">DNI</SelectItem>
-                  <SelectItem value="CE">CE</SelectItem>
-                </SelectContent>
-              </Select>
+              <FormField
+                control={form.control}
+                name="documentType"
+                render={({ field }) => (
+                  <FormItem className="w-full max-w-[140px]">
+                    <FormControl>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <SelectTrigger className="rounded-r-none border-r-0">
+                          <SelectValue placeholder="Tipo de documento" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="DNI">DNI</SelectItem>
+                          <SelectItem value="CE">CE</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
               <FormField
                 control={form.control}
                 name="documentNumber"
