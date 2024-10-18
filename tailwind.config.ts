@@ -55,6 +55,9 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      boxShadow: {
+        "card-shadow": "0px 1px 32px 0px rgba(16, 24, 40, 0.06)",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

@@ -1,10 +1,11 @@
+import GridLayout from "@/layouts/grid-layout";
 import { PlansStepper } from "./components/plans-stepper";
 
-export default function PlanesLayout({ children }: { children: React.ReactNode }) {
+export default function PlansLayout({ children }: { children: React.ReactNode }) {
   return (
     <div>
       <PlansStepper />
-      {children}
+      <GridLayout>{children}</GridLayout>
     </div>
   );
 }
