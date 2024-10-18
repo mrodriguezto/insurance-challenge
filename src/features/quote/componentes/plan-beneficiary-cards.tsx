@@ -4,7 +4,7 @@ import { RadioGroup } from "@/components/ui/radio-group";
 import { BeneficiaryCard, BeneficiaryCardProps } from "./beneficiary-card";
 import { ProtectionUserIcon } from "@/components/protection-user-icon";
 import { ProtectionAddUserIcon } from "@/components/protection-add-user-icon";
-import { useState } from "react";
+import { useQuoteStore } from "../state/quote.state";
 
 const cards: Omit<BeneficiaryCardProps, "isActive">[] = [
   {
@@ -22,12 +22,16 @@ const cards: Omit<BeneficiaryCardProps, "isActive">[] = [
 ];
 
 export function PlanBeneficiaryCards() {
-  const [selectedCard, setSelectedCard] = useState<BeneficiaryCardProps["value"] | null>(null);
+  const { selectedBeneficiary, setSelectedBeneficiary } = useQuoteStore();
 
   return (
-    <RadioGroup className="flex flex-col gap-6 md:flex-row">
+    <RadioGroup
+      className="flex flex-col gap-6 md:flex-row"
+      value={selectedBeneficiary || undefined}
+      onValueChange={(value) => setSelectedBeneficiary(value as "for-me" | "for-others")}
+    >
       {cards.map((card) => (
-        <BeneficiaryCard key={card.title} {...card} isActive={selectedCard === card.value} />
+        <BeneficiaryCard key={card.title} {...card} isActive={selectedBeneficiary === card.value} />
       ))}
     </RadioGroup>
   );

@@ -1,24 +1,21 @@
 import { api } from "@/lib/api";
 import { z } from "zod";
 
-export type DocumentType = "DNI" | "CE";
-
-const userSchema = z.object({
-  firstName: z.string(),
+const UserSchema = z.object({
+  name: z.string(),
   lastName: z.string(),
-  birthDate: z.string(),
+  birthDay: z.string(),
 });
 
-export type UserInfo = z.infer<typeof userSchema>;
+export type UserInfo = z.infer<typeof UserSchema>;
 
 export type UserExtraInfo = {
-  documentType: DocumentType;
+  documentType: "DNI" | "CE";
   documentNumber: string;
   phoneNumber: string;
 };
 
 export async function getUser() {
-  const { data } = await api.get<UserInfo>("/user.json");
-
-  return userSchema.parse(data);
+  const response = await api.get<UserInfo>("/user.json");
+  return UserSchema.parse(response.data);
 }

@@ -3,7 +3,10 @@
 import { getUser, UserExtraInfo, UserInfo } from "@/services/get-user.service";
 import { create } from "zustand";
 
-export type User = UserInfo & UserExtraInfo;
+export type User = UserInfo &
+  UserExtraInfo & {
+    age: number;
+  };
 
 type UserState = {
   user: User | null;
@@ -17,7 +20,16 @@ export const useUserStore = create<UserState>((set) => ({
   fetchUser: async (data: UserExtraInfo) => {
     const user = await getUser();
 
-    const updatedUser = { ...user, ...data };
+    // Calcular la edad basada en la fecha de nacimiento
+    const birthDate = new Date(user.birthDay);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+
+    const updatedUser = { ...user, ...data, age };
 
     set({ user: updatedUser });
   },

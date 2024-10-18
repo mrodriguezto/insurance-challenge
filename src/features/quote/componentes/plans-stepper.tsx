@@ -11,16 +11,20 @@ const steps = ["Planes y coberturas", "Resumen"];
 export function PlansStepper() {
   const router = useRouter();
   const currentStep = useStepperStore((state) => state.currentStep);
+  const setCurrentStep = useStepperStore((state) => state.setCurrentStep);
+
+  const handleBack = () => {
+    if (currentStep === 0) {
+      router.back();
+    } else {
+      setCurrentStep(0);
+    }
+  };
 
   return (
     <div className="flex items-center justify-center gap-4 border-b border-[#EDEFFC] px-6 py-4 md:bg-[#EDEFFC]">
       <div className="md:hidden">
-        <Button
-          className="rounded-full"
-          variant="outline"
-          size="icon"
-          onClick={() => router.back()}
-        >
+        <Button className="rounded-full" variant="outline" size="icon" onClick={handleBack}>
           <ChevronLeftIcon className="h-3 w-3" />
         </Button>
       </div>

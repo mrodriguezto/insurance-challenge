@@ -24,7 +24,7 @@ import Link from "next/link";
 import { quoteFormSchema, type QuoteForm as QuoteFormType } from "../validations/quote.schema";
 import { useState } from "react";
 import { LoadingButton } from "@/components/ui/loading-button";
-import { useUserStore } from "../state/user.state";
+import { useUserStore } from "../../../state/user.state";
 import { useRouter } from "next/navigation";
 import { ROUTES } from "@/configs/routes";
 
