@@ -48,6 +48,7 @@ const config: Config = {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
+        info: "hsl(var(--info))",
       },
       borderRadius: {
         lg: "var(--radius)",
