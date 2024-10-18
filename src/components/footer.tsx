@@ -5,16 +5,12 @@ import rimacFlatLogo from "@/assets/logo-white-flat.png";
 
 export function Footer() {
   return (
-    <footer className="bg-dark-background px-6 py-8">
+    <footer className="bg-dark-background py-8">
       <GridLayout>
         <div className="col-span-full">
-          <div className="flex flex-col md:flex-row gap-6 items-center justify-between">
+          <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
             <div className="flex items-center gap-2">
-              <Image
-                src={rimacLogo}
-                alt="logo"
-                className="hidden h-10 md:block"
-              />
+              <Image src={rimacLogo} alt="logo" className="hidden h-10 md:block" />
               <Image src={rimacFlatLogo} alt="logo" className="h-5 md:hidden" />
             </div>
 

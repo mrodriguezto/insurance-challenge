@@ -7,16 +7,14 @@ export function Header() {
   return (
     <header className="bg-background">
       <GridLayout>
-        <div className="col-span-full py-3 px-6">
+        <div className="col-span-full py-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Image src={rimacLogo} alt="logo" className="h-8 md:h-9" />
             </div>
             <div className="flex items-center gap-4">
               <div className="hidden md:block">
-                <span className="text-xs font-semibold">
-                  ¡Compra por este medio!
-                </span>
+                <span className="text-xs font-semibold">¡Compra por este medio!</span>
               </div>
 
               <div className="flex items-center gap-2">

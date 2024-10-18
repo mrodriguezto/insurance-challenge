@@ -1,6 +1,6 @@
 function GridLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="grid grid-cols-12 gap-8 max-w-screen-xl mx-auto">
+    <div className="mx-auto grid max-w-screen-xl grid-cols-4 gap-4 px-6 md:grid-cols-12 md:gap-8">
       {children}
     </div>
   );
