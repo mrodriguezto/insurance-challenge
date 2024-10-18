@@ -25,7 +25,7 @@ export function PlanBeneficiaryCards() {
   const [selectedCard, setSelectedCard] = useState<BeneficiaryCardProps["value"] | null>(null);
 
   return (
-    <RadioGroup className="flex flex-col gap-6">
+    <RadioGroup className="flex flex-col gap-6 md:flex-row">
       {cards.map((card) => (
         <BeneficiaryCard key={card.title} {...card} isActive={selectedCard === card.value} />
       ))}

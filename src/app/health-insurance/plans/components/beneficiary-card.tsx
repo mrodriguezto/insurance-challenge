@@ -18,7 +18,7 @@ export function BeneficiaryCard({
   isActive,
 }: BeneficiaryCardProps) {
   return (
-    <Card className={cn(isActive ? "border-primary" : "border-transparent")}>
+    <Card className={cn("md:max-w-[256px]", isActive ? "border-primary" : "border-transparent")}>
       <CardHeader>
         <div className="flex justify-end">
           <RadioGroupItem value={value} />

@@ -10,7 +10,7 @@ export type PlanDetailCardProps = {
 
 export function PlanDetailCard({ icon, title, monthlyPrice, details }: PlanDetailCardProps) {
   return (
-    <Card className="flex min-w-[280px] flex-col">
+    <Card className="flex w-[280px] min-w-[280px] flex-col">
       <CardHeader>
         <CardTitle>
           <div className="flex items-center justify-between gap-2 pt-6">
