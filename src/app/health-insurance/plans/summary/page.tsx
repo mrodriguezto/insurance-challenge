@@ -1,5 +1,5 @@
-import { GoBackButton } from "../components/go-back-button";
-import { SummaryCard } from "./components/summary-card";
+import { GoBackButton } from "@/features/quote/componentes/go-back-button";
+import { SummaryCard } from "@/features/quote/componentes/quote-summary-card";
 
 const user = {
   name: "Rocío Miranda",

@@ -10,8 +10,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useForm } from "react-hook-form";
-import { quoteFormSchema } from "../validators/quote.validator";
-import { type QuoteForm as QuoteFormType } from "../validators/quote.validator";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,
@@ -24,6 +22,7 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { quoteFormSchema, type QuoteForm as QuoteFormType } from "../validations/quote.schema";
 
 export function QuoteForm() {
   const form = useForm<QuoteFormType>({

@@ -4,7 +4,7 @@ import { Stepper } from "@/components/stepper";
 import { Button } from "@/components/ui/button";
 import { ChevronLeftIcon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
-import { useStepperStore } from "../state/stepper.state";
+import { useStepperStore } from "../state/multistep-plan.state";
 
 const steps = ["Planes y coberturas", "Resumen"];
 
