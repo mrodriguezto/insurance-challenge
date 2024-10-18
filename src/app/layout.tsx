@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+
 import "./globals.css";
 
 const BRSonomaRegular = localFont({
@@ -35,9 +38,11 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${BRSonomaRegular.variable} ${BRSonomaBold.variable} ${BRSonomaMedium.variable} ${BRSonomaSemiBold.variable} antialiased`}
+        className={`${BRSonomaRegular.variable} ${BRSonomaBold.variable} ${BRSonomaMedium.variable} ${BRSonomaSemiBold.variable} antialiased flex flex-col min-h-screen`}
       >
-        {children}
+        <Header />
+        <div className="flex-1 text-foreground">{children}</div>
+        <Footer />
       </body>
     </html>
   );
