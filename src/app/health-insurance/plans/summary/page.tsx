@@ -20,7 +20,7 @@ export default function SummaryPage() {
       </div>
 
       <div className="col-span-full flex flex-col gap-8 pb-12 md:col-start-2 md:col-end-11">
-        <h1 className="text-3xl font-bold md:text-5xl">Resumen del seguro</h1>
+        <h1 className="pt-8 text-3xl font-bold md:text-5xl">Resumen del seguro</h1>
 
         <SummaryCard user={user} plan={plan} />
       </div>
